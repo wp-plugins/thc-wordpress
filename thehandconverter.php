@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: HandConverter for Wordpress
-Plugin URI: http://www.handconverter.com
-Description: Takes raw hand histories and inserts them into your Wordpress posts
+Plugin URI: http://www.rograndom.com/wordpress-projects/hand-converter-wordpress/
+Description: Takes raw hand histories from online poker sites and inserts them into your Wordpress posts
 Author: Andy Jones
-Version: 0.02
+Version: 0.1
 
-Author URI: http://www.handconverter.com/
+Author URI: http://www.rograndom.com/
 
 */ 
 
@@ -19,13 +19,9 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 	
 global $wpdb, $wp_version, $wpmu_version, $wp_roles;
 
-// ini_set('display_errors', '1');
-// ini_set('error_reporting', E_ALL);
-
 // Version and path to check version
-define('HCVERSION', "0.02");
+define('HCVERSION', "0.1");
 // Minimum required database version
-//define('HCURL', "http://www.rograndom.com/test/version.php");
 
 // required for Windows & XAMPP
 $myabspath = str_replace("\\","/",ABSPATH);  
