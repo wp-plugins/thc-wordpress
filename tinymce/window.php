@@ -21,7 +21,9 @@ $hh2 = preg_replace('/ /', '%20', $hh2);
 $url = 'http://www.handconverter.com/convert.cgi';
 $post = 'HH='.$hh2.'&hh_format=HTML&hh_displayresults=plaintext&hh_chat_display=1&hh_make_public=1&hh_aliases_option=position';
 $ch = curl_init($url);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 10);
+if (ini_get('open_basedir') == '' && ini_get('safe_mode' == 'Off')) {
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+}
 curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 
 

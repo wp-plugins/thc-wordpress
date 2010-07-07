@@ -33,6 +33,9 @@ All of the major sites are supported. If it works on www.handconverter.com, it w
 
 == Changelog ==
 
+= 0.2 =
+* Fixed cURL issues on some servers
+
 = 0.1 =
 * Tested with Wordpress 3.0
 

@@ -21,9 +21,13 @@ $hh2 = preg_replace('/ /', '%20', $hh2);
 $url = 'http://www.handconverter.com/convert.cgi';
 $post = 'HH='.$hh2.'&hh_format=HTML&hh_displayresults=plaintext&hh_chat_display=1&hh_make_public=1&hh_aliases_option=position';
 $ch = curl_init($url);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 10);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 
+if (ini_get('open_basedir') == '' && ini_get('safe_mode' == 'Off')) {
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+}
+//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 10);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -58,7 +62,10 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 <form name="source" onsubmit="saveContent();" action="#">
 <textarea style="display:none;" id="hccontent">
 <?
-curl_exec($ch);
+$output = curl_exec($ch);
+$output = preg_replace("/converter_html/", "vtpokerleague", $output);
+curl_close($ch);
+echo $output;
 ?>
 </textarea>
 <h2>Look Good?</h2>
@@ -70,8 +77,7 @@ curl_exec($ch);
 		<p style="clear:both; margin-top: 5em;"></p>
 <div>
 <?
-curl_exec($ch);
-curl_close($ch);
+echo $output;
 ?>
 </div>
 
