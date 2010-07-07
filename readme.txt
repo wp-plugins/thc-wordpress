@@ -4,7 +4,7 @@ Donate link: http://www.rograndom.com/wordpress-projects/hand-converter-wordpres
 Tags: poker, dc, hand history, hand converter, handconverter, deucescracked, pokerstars, ftp, fulltilt, fulltiltpoker, partypoker, ub
 Requires at least: 2.7
 Tested up to: 3.0
-Stable tag: trunk
+Stable tag: 0.2
 
 A plugin for Wordpress that adds a convenient poker hand converter utility to your Wordpress post editor.
 
